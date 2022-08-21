@@ -1,0 +1,14 @@
+click==8.0.4
+colorama==0.4.4
+Flask==2.0.3
+gunicorn==20.1.0
+itsdangerous==2.1.0
+Jinja2==3.0.3
+joblib==1.1.0
+MarkupSafe==2.1.0
+numpy==1.22.2
+scikit-learn==1.0.2
+scipy==1.8.0
+sklearn==0.0
+threadpoolctl==3.1.0
+Werkzeug==2.0.3
