@@ -6,13 +6,13 @@ import numpy as np
 app = Flask(__name__)
 
 def prediction(lst):
-    filename = '../model/predictor.pickle'
+    filename = 'model/predictor.pickle'
     with open(filename, 'rb') as file:
         model = pickle.load(file)
     pred_value = model.predict([lst])
     return pred_value
 
-@app.route('../', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def index():
     # return "Hello World"
     pred_value = 0
@@ -40,6 +40,12 @@ def index():
         cpu_list = ['amd','intelcorei3','intelcorei5','intelcorei7','other']
         gpu_list = ['amd','intel','nvidia']
 
+        # for item in company_list:
+        #     if item == company:
+        #         feature_list.append(1)
+        #     else:
+        #         feature_list.append(0)
+
         def traverse_list(lst, value):
             for item in lst:
                 if item == value:
@@ -54,7 +60,7 @@ def index():
         traverse_list(gpu_list, gpu)
 
         pred_value = prediction(feature_list)
-        pred_value = np.round(pred_value[0],2)*362
+        pred_value = np.round(pred_value[0],2)*221
 
     return render_template('index.html', pred_value=pred_value)
 
